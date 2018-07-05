@@ -1,64 +1,64 @@
 class ATM {
-    constructor (serie){
+    constructor(serie) {
         this._numeroSerie = serie;
-        this.valor = 0
+        this.valor = 0;
         this.cinco = 0;
         this.des = 0;
         this.vinte = 0;
         this.cinquenta = 0;
         this.cem = 0;
     }
-    get numeroSerie(){
+    get numeroSerie() {
         return this._numeroSerie;
     }
-    abastecer(numero,cedula){
-        if(cedula===5){
+    abastecer(numero, cedula) {
+        if (cedula===5) {
             this.cinco = numero;
-            this.valor = +numero*cedula
+            this.valor = +numero * cedula;
         }
-        if(cedula===10){
+        if (cedula===10) {
             this.des = numero;
-            this.valor = +numero*cedula
+            this.valor = +numero * cedula;
         }
-        if(cedula===20){
+        if (cedula===20) {
             this.vinte = numero;
-            this.valor = +numero*cedula
+            this.valor = +numero * cedula;
         }
-        if(cedula===50){
+        if (cedula===50) {
             this.cinquenta = numero;
-            this.valor = +numero*cedula
+            this.valor = +numero * cedula;
         }
-        if(cedula===100){
+        if (cedula===100) {
             this.cem = numero;
-            this.valor = +numero*cedula
+            this.valor = +numero * cedula;
         }
-        if(cedula != 5&&10&&20&&50&&100){
+        if (cedula != 5&&10&&20&&50&&100) {
             return 0;
         }
     }
-    cedulas(cedula){
-        if(cedula===5){
+    cedulas(cedula) {
+        if (cedula===5) {
             return this.cinco; 
         }
-        if(cedula===10){
+        if (cedula===10) {
             return this.des;
         }
-        if(cedula===20){
+        if (cedula===20) {
             return this.vinte;
         }
-        if(cedula===50){
+        if (cedula===50) {
             return this.cinquenta;
         }
-        if(cedula===100){
+        if (cedula===100) {
             return this.cem;
         }
-        if(cedula!= 5&&10&&20&&50&&100){
+        if (cedula!= 5&&10&&20&&50&&100) {
             return 0;
         }
     }
-    retirar(x){
+    retirar(x) {
         let c5,c10,c20,c50,c100 = 0;
-        if(x>this.valor){
+        if (x>this.valor) {
             return "Não há cedulas suficientes"
         }else{
             if(x>=100){
@@ -131,8 +131,8 @@ class ATM {
                                                     this.cinquenta = this.cinquenta - c50;
                                                     this.cem = this.cem - c100;
                                                 }
-                                                if(resto!=0){
-                                                    return "Não há cedulas suficientes"
+                                                if(resto!=0) {
+                                                    return "Não há cedulas suficientes";
                                                 }
                                             }
                                         }
@@ -188,16 +188,16 @@ class ATM {
                                     this.valor = this.valor - x;
                                 }
                                 if(rest>=5){
-                                    let c5 = Math.floor(rest/5)
+                                    let c5 = Math.floor(rest/5);
                                     if(c5>this.cinco){
-                                        return "Não há cedulas suficientes"
+                                        return "Não há cedulas suficientes";
                                     }else{
                                         let resto = rest%5
                                         if(resto===0){
                                             this.valor = this.valor - x;
                                         }
                                         if(resto!=0){
-                                            return "Não há cedulas suficientes"
+                                            return "Não há cedulas suficientes";
                                         }
                                     }
                                 }
@@ -207,13 +207,13 @@ class ATM {
                                 let c5 = Math.floor(r/5)
                                 if(c5>this.cinco){
                                     return "Não há cedulas suficientes"
-                                }else{
+                                }else {
                                     let resto = r%5
-                                    if(resto===0){
+                                    if(resto===0) {
                                         this.valor = this.valor - x;
                                     }
-                                    if(resto!=0){
-                                        return "Não há cedulas suficientes"
+                                    if(resto!=0) {
+                                        return "Não há cedulas suficientes";
                                     }
                                 }
                             }
@@ -224,9 +224,6 @@ class ATM {
         }
     }
 }
-
-
-
 const atm = new ATM(2344499);
 console.log(atm.numeroSerie === 2344499);
 // a linha a seguir não deve fazer efeito
